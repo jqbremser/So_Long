@@ -6,7 +6,7 @@
 #    By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 10:55:21 by jbremser          #+#    #+#              #
-#    Updated: 2024/04/04 13:00:47 by jbremser         ###   ########.fr        #
+#    Updated: 2024/04/12 14:48:54 by jbremser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,17 +57,24 @@ CFILES = ft_memset.c \
 		 printp.c \
 		 get_next_line.c 	
 		 
+CC	=	cc
+
 ANSI_BLUE := \033[0;34m
 ANSI_RED :=	\033	
 ANSI_RESET := \033[0m		 	 
 
 OFILES = $(CFILES:.c=.o)
 
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+
 all: $(NAME) 
 
-$(NAME): $(OFILES)
+$(NAME): $(OFILES) 
 	@ar -rcs $(NAME) $(OFILES)
 	@echo "$(ANSI_BLUE)LIBFT Compilation Complete$(ANSI_RESET)"
+
+%.o: %.c
+	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OFILES)
@@ -75,7 +82,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(ANSI_RED)$(NAME).a removed$(ANSI_RESET)"
+	@echo "$(ANSI_RED)$(NAME) removed$(ANSI_RESET)"
 
 re: fclean $(NAME)
 

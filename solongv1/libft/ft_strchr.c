@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jbremser <jbremser@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:58:32 by jbremser          #+#    #+#             */
-/*   Updated: 2023/11/20 12:33:29 by jbremser         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:38:41 by jbremser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -17,6 +19,8 @@ char	*ft_strchr(const char *s, int c)
 
 	len = 0;
 	ch = (char)c;
+	if (s == NULL)
+		return (0);
 	while (s[len] != '\0')
 	{
 		if (s[len] == ch)

@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   error_time.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 14:03:37 by jbremser          #+#    #+#             */
-/*   Updated: 2024/04/12 14:45:02 by jbremser         ###   ########.fr       */
+/*   Created: 2024/04/11 14:03:28 by jbremser          #+#    #+#             */
+/*   Updated: 2024/04/11 14:07:42 by jbremser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../so_long.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	freenull(char **ptr)
 {
-	unsigned char	*s1a;
-	unsigned char	*s2a;
-	size_t			i;
+	free(*ptr);
+	*ptr = NULL;
+}
 
-	i = 0;
-	s1a = (unsigned char *)s1;
-	s2a = (unsigned char *)s2;
-	while (((s1a[i]) || (s2a[i])) && i < n)
-	{
-		if (s1a[i] != s2a[i])
-			return (s1a[i] - s2a[i]);
-		else
-			i++;
-	}
-	return (0);
+int error_msg_exit(char *msg, t_map *game)
+{
+	write(2, msg, ft_strlen(msg));
+	free(game);
+	exit(1);
 }
