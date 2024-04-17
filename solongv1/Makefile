@@ -6,7 +6,7 @@
 #    By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 12:39:28 by jbremser          #+#    #+#              #
-#    Updated: 2024/04/12 14:56:36 by jbremser         ###   ########.fr        #
+#    Updated: 2024/04/15 12:49:10 by jbremser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,11 +38,11 @@ all:		$(NAME)
 
 $(NAME):	$(LIBS) $(OBJS)
 			@cc $(FLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
-			@echo "$(ANSI_BLUE) Compilation Complete: $(NAME) $(ANSI_RESET)"
+			@echo "$(ANSI_BLUE)Compilation Complete: $(NAME) $(ANSI_RESET)"
 
 $(LIBFT):
 			@$(MAKE) -C $(LIBFT_DIR)
-			@echo "$(ANSI_BLUE) Library Compiled$(ANSI_RESET)"
+			@echo "$(ANSI_BLUE)Library Compiled$(ANSI_RESET)"
 
 $(OBJDIR)/%.o:	$(SRCDIR)/%.c
 			@mkdir -p $(OBJDIR)
@@ -51,13 +51,13 @@ $(OBJDIR)/%.o:	$(SRCDIR)/%.c
 clean:		
 			@rm -rf $(OBJDIR) 
 			@make -C $(LIBFT_DIR) clean
-			@echo "$(ANSI_RED) Objects and Libraries:$(LIBFT_DIR) Cleaned$(ANSI_RESET)"
+			@echo "$(ANSI_RED)Objects and Libraries:$(LIBFT_DIR) Cleaned$(ANSI_RESET)"
 			
 
 fclean:		clean
 			@rm -f $(NAME)
 			@make -C $(LIBFT_DIR) fclean
-			@echo "$(ANSI_RED) Executable $(NAME) removed$(ANSI_RESET)"
+			@echo "$(ANSI_RED)Executable $(NAME) removed$(ANSI_RESET)"
 
 re:		fclean	all
 

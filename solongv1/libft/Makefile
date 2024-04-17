@@ -6,7 +6,7 @@
 #    By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 10:55:21 by jbremser          #+#    #+#              #
-#    Updated: 2024/04/12 14:48:54 by jbremser         ###   ########.fr        #
+#    Updated: 2024/04/15 12:49:43 by jbremser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,12 +60,12 @@ CFILES = ft_memset.c \
 CC	=	cc
 
 ANSI_BLUE := \033[0;34m
-ANSI_RED :=	\033	
+ANSI_RED :=	\033[31m
 ANSI_RESET := \033[0m		 	 
 
 OFILES = $(CFILES:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
 
 all: $(NAME) 
 
