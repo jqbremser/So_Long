@@ -6,18 +6,21 @@
 #    By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/27 12:39:28 by jbremser          #+#    #+#              #
-#    Updated: 2024/04/15 12:49:10 by jbremser         ###   ########.fr        #
+#    Updated: 2024/04/26 15:43:50 by jbremser         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = 		so_long
 
-FLAGS = 	-Wall -Werror -Wextra -g 
+FLAGS = 	-Wall -Werror -Wextra -g #-fsanitize=address
 
 FILES = 	so_long.c \
 			map_init.c \
-			error_time.c
+			map_parse.c \
+			utils.c \
+			fill.c \
+			error_time.c 
 
 SRCDIR =	srcs
 OBJDIR =	objs
