@@ -6,7 +6,7 @@
 /*   By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 15:36:04 by jbremser          #+#    #+#             */
-/*   Updated: 2024/04/27 16:34:26 by jbremser         ###   ########.fr       */
+/*   Updated: 2024/05/13 14:58:14 by jbremser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_map *game;
+	t_map	*game;
 
 	if (argc != 2)
 	{
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	{
 		struct_zero(game);
 		map_init(game, argv[1]);
-		// add_mlx(game, mlx);
+		mlx_starter(game);
 	}
 	the_big_free(game);
 	return (0);

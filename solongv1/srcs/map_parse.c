@@ -6,7 +6,7 @@
 /*   By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:20:56 by jbremser          #+#    #+#             */
-/*   Updated: 2024/04/26 15:41:35 by jbremser         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:38:22 by jbremser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,18 +101,6 @@ int	count_check(t_map *game, int j)
 }
 
 
-int	map_parse(t_map *game)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	if (edge_me_baby(game, i, j) == 0 || char_check(game, i, j) == 0
-		|| count_check(game, j) == 0 || floodfill(game) == 0)
-		return (0);
-	return (1);
-}
 	// ft_printf("player position:[%d][%d]\n", game->p_position.y, game->p_position.x);
 	// ft_printf("exit position:[%d][%d]\n", game->e_position.y, game->e_position.x);
 	// ft_printf("columns: %d\n", game->columns);
@@ -134,5 +122,18 @@ int edge_me_baby(t_map *game, int i, int j)
 		i = 0;
 		j++;
 	}
+	return (1);
+}
+
+int	map_parse(t_map *game)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	if (edge_me_baby(game, i, j) == 0 || char_check(game, i, j) == 0
+		|| count_check(game, j) == 0 || floodfill(game) == 0)
+		return (0);
 	return (1);
 }

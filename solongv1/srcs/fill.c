@@ -6,7 +6,7 @@
 /*   By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 14:16:35 by jbremser          #+#    #+#             */
-/*   Updated: 2024/04/27 16:42:02 by jbremser         ###   ########.fr       */
+/*   Updated: 2024/05/13 15:06:56 by jbremser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,12 @@ int		floodfill(t_map	*game)
 	game->copy = map_copy(game);
 	if (!game->copy)
 		return (0);
-	ft_printf("\nplayer position:[%d][%d]\n", game->p_position.y, game->p_position.x);
-	print_copy(game);
 	fill(game, game->p_position.y, game->p_position.x);
 	if (check_copy(game) == 0)
 	{
 		free_array(game->copy);
-		free(game->copy);
 		return (0);
 	}
-	ft_printf("\nplayer position:[%d][%d]\n", game->p_position.y, game->p_position.x);
-	print_copy(game);
 	free_array(game->copy);
 	return (1);
 }

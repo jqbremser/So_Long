@@ -6,7 +6,7 @@
 /*   By: jbremser <jbremser@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:09:02 by jbremser          #+#    #+#             */
-/*   Updated: 2024/04/27 17:01:29 by jbremser         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:49:26 by jbremser         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ char	**map_to_str(t_map *game, char *args)
 
 	fd = 0;
 	i = 0;
-	// ft_printf("rows: %d\n", game->rows);
 	game->map = (char **)ft_calloc((size_t)game->rows + 1, sizeof(char *));
+	ft_printf("address of game->map:%p\n", game->map);
 	if (!game->map)
 	{
 		free_array(game->map);
@@ -80,7 +80,6 @@ int	map_init(t_map *game, char *args)
 	game->rows = map_rows(game, args);
 	game->map = map_to_str(game, args);
 	game->columns = (ft_strlen(game->map[0]) - 1);
-	// print_map(game);
 	if ((map_parse(game)) == 0)
 	{
 		free_array(game->map);
@@ -88,11 +87,14 @@ int	map_init(t_map *game, char *args)
 	}
 	if (!game->map || !game->map[0])
 		error_msg_exit("Error: Empty Map! \n", game);
+	return (0);
+}
+	// print_map(game);
 	// ft_printf("tokens: %d\n", game->tokens);
 	// ft_printf("exit: %d\n", game->exit);
 	// ft_printf("player: %d\n", game->player);
-	return (0);
-}
+	// ft_printf("\nrows: %d\n", game->rows);
+	// ft_printf("\ncolumns: %d\n", game->columns);
 
 // ft_printf("args len:%d\n", ft_strlen(args));
 // ft_printf("Map_str is: \n%s\n", map_str);
